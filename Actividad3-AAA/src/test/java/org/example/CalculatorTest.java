@@ -31,46 +31,46 @@ class CalculatorTest {
         assertEquals(15, resultado, "10 + 5 deberia ser 15");
     }
     @Test
-    @DisplayName("Test del metodo resta, la resta de 10-8=2")
+    @DisplayName("Test del metodo resta, la resta de 15-10=5")
     public void testRest_PositiveNumbers_ShouldReturnCorrectRest(){
         //Arrange
         Calculator calculator = new Calculator();
-        int numeroA = 10;
-        int numeroB = 8;
-
-        //Act
-        int resultado = calculator.restar(10, 8);
-
-        //Assert
-        assertEquals(2, resultado, "10 - 8 deberia ser 2");
-    }
-    @Test
-    @DisplayName("Test del metodo multiplicacion, el producto de 8*2=16")
-    public void testMult_PositiveNumbers_ShouldReturnCorrectMult(){
-        //Arrange
-        Calculator calculator = new Calculator();
-        int numeroA = 8;
-        int numeroB = 2;
-
-        //Act
-        int resultado = calculator.multiplicacion(8,2);
-
-        //Assert
-        assertEquals(16, resultado, "8 * 2 deberia ser 16");
-    }
-    @Test
-    @DisplayName("Test del metodo division, el cociente de 50/10=5")
-    public void testDiv_PosotiveNumbers_ShouldReturnCorrectDiv(){
-        //Arrange
-        Calculator calculator = new Calculator();
-        int numeroA = 50;
+        int numeroA = 15;
         int numeroB = 10;
 
         //Act
-        double resultado = calculator.division(numeroA, numeroB);
+        int resultado = calculator.restar(15, 10);
 
         //Assert
-        assertEquals(5, resultado, "50 / 10 deberia ser 5");
+        assertEquals(5, resultado, "15 - 10 deberia ser 5");
+    }
+    @Test
+    @DisplayName("Test del metodo multiplicacion, el producto de 7*4=28")
+    public void testMult_PositiveNumbers_ShouldReturnCorrectMult(){
+        //Arrange
+        Calculator calculator = new Calculator();
+        int numeroA = 7;
+        int numeroB = 4;
+
+        //Act
+        int resultado = calculator.multiplicacion(7,4);
+
+        //Assert
+        assertEquals(28, resultado, "7 * 4 deberia ser 28");
+    }
+    @Test
+    @DisplayName("Test del metodo division, el cociente de 18/2=9")
+    public void testDiv_PosotiveNumbers_ShouldReturnCorrectDiv(){
+        //Arrange
+        Calculator calculator = new Calculator();
+        int numeroA = 18;
+        int numeroB = 2;
+
+        //Act
+        double resultado = calculator.division(18,2);
+
+        //Assert
+        assertEquals(9, resultado, " 18/ 2 deberia ser 9");
     }
 
     //////////Test para valores múltiples//////////
