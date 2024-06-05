@@ -3,64 +3,67 @@
 ## Game
 ### Principios aplicados:
 
-*  La clase Game ahora se enfoca únicamente en la lógica del juego.
-*  Las dependencias (WordSelector y HintGenerator) se pasan a través del constructor en lugar de ser instanciadas directamente dentro de la clase. Esto facilita la inyección de dependencias y las pruebas unitarias.
+* La clase Game ahora se enfoca únicamente en la lógica del juego.
+* Las dependencias (WordSelector y HintGenerator) se pasan a través del constructor en lugar de ser instanciadas directamente dentro de la clase. Esto facilita la inyección de dependencias y las pruebas unitarias.
 
-  
-      package org.example;
+```java
+package org.example;
 
-      import java.util.Scanner;
+import java.util.Scanner;
 
-      public class Game {
-      private static final int MAX_ATTEMPTS = 5;
-      private final String secretWord;
-      private final String hint;
-      private final Scanner scanner;
+public class Game {
+    private static final int MAX_ATTEMPTS = 5;
+    private final String secretWord;
+    private final String hint;
+    private final Scanner scanner;
 
-      public Game(WordSelector wordSelector, HintGenerator hintGenerator, Scanner scanner) {
-          this.secretWord = wordSelector.selectWord();
-          this.hint = hintGenerator.generateHint(secretWord);
-          this.scanner = scanner;
-      }
+    public Game(WordSelector wordSelector, HintGenerator hintGenerator, Scanner scanner) {
+        this.secretWord = wordSelector.selectWord();
+        this.hint = hintGenerator.generateHint(secretWord);
+        this.scanner = scanner;
+    }
 
-      public void play() {
-          int attempts = 0;
-          boolean guessedCorrectly = false;
-          while (attempts < MAX_ATTEMPTS && !guessedCorrectly) {
-              System.out.println("Pista: " + hint);
-              String guess = getGuess();
-              guessedCorrectly = checkGuess(guess);
-              attempts++;
-          }
-          if (!guessedCorrectly) {
-              System.out.println("Lo siento, has agotado todos tus intentos. La palabra correcta era: " + secretWord);
-          }
-      }
+    public void play() {
+        int attempts = 0;
+        boolean guessedCorrectly = false;
+        while (attempts < MAX_ATTEMPTS && !guessedCorrectly) {
+            System.out.println("Pista: " + hint);
+            String guess = getGuess();
+            guessedCorrectly = checkGuess(guess);
+            attempts++;
+        }
+        if (!guessedCorrectly) {
+            System.out.println("Lo siento, has agotado todos tus intentos. La palabra correcta era: " + secretWord);
+        }
+    }
 
-      private String getGuess() {
-          System.out.print("Ingresa tu intento: ");
-          return scanner.nextLine().trim().toLowerCase();
-      }
+    private String getGuess() {
+        System.out.print("Ingresa tu intento: ");
+        return scanner.nextLine().trim().toLowerCase();
+    }
 
-      private boolean checkGuess(String guess) {
-          if (guess.equals(secretWord)) {
-              System.out.println("¡Felicidades! Has adivinado la palabra.");
-              return true;
-          } else {
-              String feedback = generateFeedback(guess);
-              System.out.println("Intento fallido: " + feedback);
-              return false;
-          }
-      }
+    private boolean checkGuess(String guess) {
+        if (guess.equals(secretWord)) {
+            System.out.println("¡Felicidades! Has adivinado la palabra.");
+            return true;
+        } else {
+            String feedback = generateFeedback(guess);
+            System.out.println("Intento fallido: " + feedback);
+            return false;
+        }
+    }
 
-      protected String generateFeedback(String guess) {
-          int correctLetters = 0;
-          for (int i = 0; i < secretWord.length(); i++) {
-              if (secretWord.charAt(i) == guess.charAt(i)) {
-                  correctLetters++;
-              }
-          }
-          return "La
+    protected String generateFeedback(String guess) {
+        int correctLetters = 0;
+        for (int i = 0; i < secretWord.length(); i++) {
+            if (secretWord.charAt(i) == guess.charAt(i)) {
+                correctLetters++;
+            }
+        }
+        return "La";
+    }
+}
+
 
 ## HintGenerator
 ### Principios aplicados:
