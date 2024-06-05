@@ -70,20 +70,20 @@ public class Game {
 
 * La interfaz HintGenerator define una única responsabilidad, que es generar una pista a partir de una palabra.
 
-
+```java
     package org.example;
 
     public interface HintGenerator {
     String generateHint(String word);
     }
-
+```
 ## SimpleHintGenerator
 ### Principios aplicados:
 
 *  La clase SimpleHintGenerator implementa la lógica específica de generación de pistas.
 *  La clase puede ser extendida para crear nuevos tipos de generadores de pistas sin modificar la implementación existente.
 
-
+```java
     package org.example;
 
     public class SimpleHintGenerator implements HintGenerator {
@@ -96,23 +96,24 @@ public class Game {
             return hint.toString().trim();
         }
     }
+```
 ## WordSelector
 ## Principios aplicados:
 
 * La interfaz WordSelector define una única responsabilidad, que es seleccionar una palabra.
-
+```java
         package org.example;
 
         public interface WordSelector {
             String selectWord();
         }
-
+    ```
 ## RandomWordSelector
 ### Principios aplicados:
 
 *  La clase RandomWordSelector implementa la lógica específica de selección de palabras al azar.
 *  La clase puede ser extendida para crear nuevos tipos de selectores de palabras sin modificar la implementación existente.
-
+    ```java
         package org.example;
 
         import java.util.Random;
@@ -127,4 +128,4 @@ public class Game {
                 return WORDS[index];
             }
         }
-
+    ```
