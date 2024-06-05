@@ -7,7 +7,7 @@
 *  Las dependencias (WordSelector y HintGenerator) se pasan a través del constructor en lugar de ser instanciadas directamente dentro de la clase. Esto facilita la inyección de dependencias y las pruebas unitarias.
 
   
-    package org.example;
+      package org.example;
 
       import java.util.Scanner;
 
