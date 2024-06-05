@@ -107,13 +107,13 @@ public class Game {
         public interface WordSelector {
             String selectWord();
         }
-    ```
+```
 ## RandomWordSelector
 ### Principios aplicados:
 
 *  La clase RandomWordSelector implementa la lógica específica de selección de palabras al azar.
 *  La clase puede ser extendida para crear nuevos tipos de selectores de palabras sin modificar la implementación existente.
-    ```java
+```java
         package org.example;
 
         import java.util.Random;
