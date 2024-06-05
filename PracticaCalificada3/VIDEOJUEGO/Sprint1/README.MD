@@ -63,7 +63,7 @@ public class Game {
         return "La";
     }
 }
-´´´´
+```
 
 ## HintGenerator
 ### Principios aplicados:
